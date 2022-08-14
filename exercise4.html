@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<form name="pw">
+<form name="pw" onsubmit="return validateForm()">
     <table>
         <tr>
             <td>Password (min 6 characters):</td>
@@ -37,9 +37,27 @@
         </tr>
     </table>
 
-    <input type="submit" value="Submit" id="submitBtn"/>
+    <input type="submit" value="Submit" id="submitBtn" />
 </form>
 
+
+<script>
+document.getElementById("submitBtn").onclick = function() {validateInputs()};
+
+function validateForm() {
+  let pass = document.forms["pw"]["password1"].value;
+  let confPass = document.forms["pw"]["password2"].value;
+  if (pass.length < 6) {
+    document.getElementById('pw1_check').innerHTML = 'password is too short!';
+    return false;
+  }else if(pass !== confPass){
+    document.getElementById('pw2_check').innerHTML = 'passwords do not match!';
+    return false;
+  }else{
+    return true;
+  }
+}
+</script>
 </body>
 </html>
 
