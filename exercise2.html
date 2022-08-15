@@ -15,9 +15,9 @@
     <div id="mydiv"></div>
     <script>
       /* TODO: write JS code here */
-      function changeBackground(e) {
+      function changeBackground({target}) {
         const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        e.target.style.backgroundColor = "#" + randomColor;
+        target.style.backgroundColor = "#" + randomColor;
       }
       document.getElementById("mydiv").addEventListener("click", changeBackground);
     </script>
